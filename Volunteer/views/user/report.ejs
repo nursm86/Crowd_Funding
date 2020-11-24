@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>report campaign</title>
+	<link rel="stylesheet" type="text/css" href="/abc/css/style.css">
+</head>
+<body>
+	
+
+<h1 style="green"> report campaigns </h1>
+
+
+		<fieldset>
+			<legend>Create campaigns</legend>
+			<form method="POST">
+			<table>
+				<tr>
+					<td>campaign id</td>
+					<td><input type="number" name="cid" value="<%= c_id %>"></td>
+				</tr>
+				
+				<tr>
+					<td>description</td>
+					<td><input type="text" name="description"></td>
+				</tr>
+				<tr>
+					<td>Updated date</td>
+					<td><input type="date" name="U_date" ></td>
+				</tr>
+				
+
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" value="Submit"></td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+
+<!-- 
+<a href="/home/userlist">User list</a>  -->
+	<!-- <a href="/user/create">Create User</a> | 
+	| 
+	<a href="/logout">logout</a -->
+
+</body> 
+</html>

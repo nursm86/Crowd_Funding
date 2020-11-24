@@ -1,0 +1,96 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/abc/css/style.css">
+	<script src="/jquery/jquery.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>search</title>
+</head>
+<body>
+	<h1> search campaigns by Title</h1>
+<form method="post">
+	<input type="text" id="name" name="name">
+	<!-- <input type="submit" name="search"> -->
+	<button class="search">Search</button>
+</form>
+	
+	<h2>History</h2>
+			<table border="1">
+		<tr>
+			<td>Campaign ID</td>
+			<td>Status</td>
+			<td>Title</td>
+		</tr>
+
+	<div id="info">
+		
+</div>
+
+<script >
+	$(document).ready(function(){
+	$('.search').click(function(){
+		var name = $("#name").val();
+
+		console.log(name);
+		$.ajax({
+			url: 'http://localhost:3000/home/search',
+			method: 'post',
+			datatype : 'json',
+			data : {'name':name},
+			success:function(response){
+				if(response.campaign !== 'error'){
+
+					// $('#info').html(response.user.id);
+					 
+					$('#info').html('<hr>'+'Id: '+response.campaign.id+'<br>'+'Type: '+response.campaign.ctype+'<br>'+'Description: '+response.campaign.description+'<br>'+'Title: '+response.campaign.title);
+					$('#name').val('');
+					
+				}else{
+					$('#info').html('<hr>'+'**can not found!!');
+				}
+			},
+			error:function(response){
+				alert('server error')
+			}
+		});
+	});
+});
+ </script>
+
+<!-- <script>
+	var myArray = []
+	
+
+	$.ajax({
+		method:'POST',
+		url:'/home/search',
+		success:function(response){
+			myArray = response.data
+			buildTable(myArray)
+			console.log(myArray)
+		}
+	})
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].title}</td>
+							 <td>${data[i].id}</td>
+							 <td>${data[i].ctype}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
+ --></body>
+</html>

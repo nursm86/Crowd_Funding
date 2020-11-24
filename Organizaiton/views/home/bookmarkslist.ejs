@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User List</title>
+</head>
+<body>
+	<h1> Campaign list</h1>
+
+	<a href="/home">Back</a> | 
+	<a href="/logout">logout</a> 
+	<br>
+	<div>
+		<%= typeof msg != 'undefined' ? msg : '' %>
+	</div>
+
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>UID</td>
+			<td>CID</td>
+			<td>Date</td>
+			<td>Action</td>
+		</tr>
+
+		<% 
+			users.forEach( function(std){ %>
+			<tr>
+				<td><%= std.id %></td>
+				<td><%= std.uid %></td>
+				<td><%= std.cid %></td>
+				<td><%= std.UpdatedDate %></td>
+				<td>
+					<a href="/organization/deletebookmarks/<%= std.id %>">Delete</a>
+				</td>
+			</tr>
+		<%
+			}); 
+		%>
+		
+	</table>
+
+</body>
+</html>

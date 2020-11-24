@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Campaign</title>
+</head>
+<body>
+	<% if(typeof(msg1) != 'undefined') { %>
+		<% if(msg1.length > 0) { %>
+            <% msg1.forEach(function(error) { %>
+            <p style="color:red"><%= error.msg %></p>
+            <%})%>
+             <% } %>
+            <% } %>
+	<form method="post">
+		<fieldset>
+			<legend>Enter Description</legend>
+			<table>
+				<tr>
+					<td> <label for="Description"></label> Description</td>
+					<td>
+						<textarea id="Description" name="Description" rows="4" cols="50"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="submit">
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+		<br>
+	<a href="/home">Back</a>|
+	<a href="/logout">Logout</a>
+	<br>
+</body>
+</html>

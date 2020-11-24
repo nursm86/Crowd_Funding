@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit User</title>
+</head>
+<body>
+	<% if(typeof(msg1) != 'undefined') { %>
+		<% if(msg1.length > 0) { %>
+            <% msg1.forEach(function(error) { %>
+            <p style="color:red"><%= error.msg %></p>
+            <%})%>
+             <% } %>
+            <% } %>
+	<form method="post">
+		<fieldset>
+			<legend>Edit Compaign</legend>
+			<table>
+				<tr>
+					<td>Target Fund</td>
+					<td><input type="text" name="target_fund"value="<%= currentCampaign.target_fund %>" ></td>
+				</tr>
+				<tr>
+					<td>Raised Fund</td>
+					<td><input type="text" name="raisedfund" value="<%= currentCampaign.raised_fund %>"></td>
+				</tr>
+				<tr>
+					<td>Campaign Type</td>
+					<td><input type="text" name="campaigntype" value="<%= currentCampaign.ctype %>"></td>
+				</tr>
+				<tr>
+					<td> <label for="Description"></label> Description</td>
+					<td>
+						<textarea id="Description" name="description" rows="4" cols="50"><%= currentCampaign.description %></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>End Date</td>
+					<td><input type="datetime-local" name="enddate" value="<%= currentCampaign.endDate %>"></td>
+				</tr>
+				<tr>
+					<td>Title</td>
+					<td><input type="test" name="title" value="<%= currentCampaign.title %>"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" value="Submit"></td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+</body>
+</html>

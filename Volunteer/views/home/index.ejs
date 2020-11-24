@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home page</title>
+	<link rel="stylesheet" type="text/css" href="/abc/css/style.css">
+</head>
+<body>
+	<h1> Welcome, <%= name %></h1>
+	<h3>Your ID, <%= id %></h3>
+<% if(typeof alert != 'undefined') { %>
+    <% alert.forEach(function(error) { %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+    <% }) %>
+<% } %>
+<h1 style="green"> create Public/emergency campaigns </h1>
+
+
+		<fieldset>
+			<legend>Create campaigns</legend>
+			<form  action="/home" method="post"  enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td>Target_fund</td>
+					<td><input type="number" name="target_fund"></td>
+				</tr>
+				<tr>
+					<td>Raised_fund</td>
+					<td><input type="number" name="raised_fund"></td>
+				</tr>
+				<tr>
+					<td>ctype</td>
+					<td><input type="text" name="ctype"></td>
+				</tr>
+				<tr>
+					<td>description</td>
+					<td><input type="text" name="description"></td>
+				</tr>
+				<tr>
+					<td>Publish date</td>
+					<td><input type="text" name="Publish_date"></td>
+				</tr>
+				<tr>
+					<td>endDate</td>
+					<td><input type="text" name="endDate"></td>
+				</tr>
+				<tr>
+					<td>status</td>
+					<td><input type="number" name="status"></td>
+				</tr>
+				<tr>
+					<td>Title </td>
+					<td><input type="text" name="title"></td>
+				</tr>
+
+				<tr>
+					<td>Image </td>
+					<td>  <input type="file" name="image" ></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" value="Submit"></td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+
+
+	<a href="/home/campaigns">All Campaigns</a> |
+	<a href="/home/contract">contract</a> | 
+	<a href="/home/search">search</a>
+	<a href="/logout">logout</a>
+
+	
+
+
+</body> 
+</html>

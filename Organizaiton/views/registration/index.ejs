@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create User</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+	<br>
+	<a href="/login">Back</a>
+	<br>
+	<div>
+		<% if(typeof(msg1) != 'undefined') { %>
+		<% if(msg1.length > 0) { %>
+            <% msg1.forEach(function(error) { %>
+            <p style="color:red"><%= error.msg %></p>
+            <%})%>
+             <% } %>
+            <% } %>
+		<%= typeof msg != 'undefined' ? msg : '' %>
+	</div>
+	<form method="post">
+		<legend>Organization Registration</legend>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Username" name="username">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputPassword3" placeholder="Email" name="email">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>
